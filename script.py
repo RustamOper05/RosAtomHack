@@ -9,14 +9,11 @@ import dash_bootstrap_components as dbc
 import plotly.express as px
 import plotly.io as poi
 from dash.dependencies import Input, Output, State
-# args = sys.argv
-# dir_path = args[1]
 
+args = sys.argv
+dir_path = args[1]
 
-data = pd.read_csv(r"C:\Users\sahab\Desktop\csv\user_cluster.csv")
-data_comp = pd.read_csv(r"C:\Users\sahab\Desktop\rijulya_ya_tebya_lublyu.csv")
-
-
+data = pd.read_csv(dir_path)
 # print(data)
 # bins = [
 #     0, 0.8, 1.2, 100
