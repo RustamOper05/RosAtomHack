@@ -69,7 +69,9 @@ class MainWindow(QWidget):
                 button = QPushButton("Return to the main page", self)
                 button.clicked.connect(self.default_window)
                 self.self_layout.addWidget(button)
-                self.showFullScreen()
+                screen = QApplication.desktop().screenGeometry()
+                width, height = screen.width(), screen.height()
+                self.setGeometry(0, 0, width, height)
                 self.self_layout.addWidget(view)
             else:
                 self.label.setText("Your file is not a CSV file.")
