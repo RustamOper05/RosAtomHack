@@ -18,8 +18,7 @@ dir_path = args[1]
 
 data = pd.read_csv(dir_path)
 
-# data = pd.read_csv(r"C:\Users\sahab\Desktop\csv\new_us_dec_data.csv", index_col="Unnamed: 0")
-data1 = pd.read_csv(r"C:\Users\sahab\Desktop\rijulya_ya_tebya_lublyu.csv", index_col="Unnamed: 0")
+data1 = pd.read_csv("cfg.csv")
 
 tab2_fig = px.scatter(
     data1,
