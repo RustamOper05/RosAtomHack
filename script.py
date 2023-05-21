@@ -20,22 +20,6 @@ data = pd.read_csv(dir_path)
 
 cfg = pd.read_csv("cfg.csv")
 
-tab2_fig = px.scatter(
-    cfg,
-    x='Баллы, %',
-    y='cnt_users',
-    color='cluster',
-    hover_data=[
-        'Компетенция',
-        'ФИО',
-    ], size='ФИО'
-)
-
-tab2_cont = [
-    html.Div('Кластер соревнований'),
-    dcc.Graph(id='radar-chart-chart', figure=tab2_fig),
-]
-
 options = []
 for i in data["family"].values:
     options.append({'label': i, 'value': i})
@@ -49,7 +33,7 @@ user_selector = dcc.Dropdown(
 
 tab3_cont = [
     html.Div('Лепестковая диаграмма'),
-    dcc.Graph(id='radar-chart', figure=tab2_fig),
+    dcc.Graph(id='radar-chart'),
     html.Div(user_selector),
     html.Button('Применить изменения', id='apply-button-radar', n_clicks=0),
 ]
@@ -74,6 +58,22 @@ sel_2 = dcc.Dropdown(
     value='Компетенция',
     multi=False
 )
+
+tab2_fig = px.scatter(
+    cfg,
+    x='Баллы, %',
+    y='cnt_users',
+    color='cluster',
+    hover_data=[
+        'Компетенция',
+        'ФИО',
+    ], size='ФИО'
+)
+
+tab2_cont = [
+    html.Div('Кластер соревнований'),
+    dcc.Graph(id='radar-chart-chart', figure=tab2_fig),
+]
 
 tab1_cont = [
     html.Div('Кластеры попарных взаимодействий признаков пользователей'),
